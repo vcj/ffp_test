@@ -10,34 +10,68 @@
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
-
 .leaflet-popup-content .marker-title {
   font-size: 14px;
 }
-
 .leaflet-popup-content {
   padding: 10px 10px 10px;
   margin:0;
   line-height:inherit;
 }
-
 </style>
 </head>
 <body>
+
+<style>
+.legend label {
+  display:inline-block;
+  font: 12px/20px 'Helvetica Neue',Arial,Helvetica,sans-serif;
+  text-align: left;
+  vertical-align: middle;
+  color:rgba(0,0,0,.75);
+  padding-left:5px;
+  margin-bottom:13px;
+}
+.legend span {
+  display:inline-block;
+  height:20px;
+  width:20px;
+}
+.legend-row {
+  display:block;
+  height:25px;
+}
+.legend-title {
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+</style>
+
+<div id='legend' style='display:none;'>
+  <span class='legend-title'>OTI Program Status</span>
+  <nav class='legend clearfix'>
+    <div class='legend-row'>
+    <span style='background:#984ea3;'></span>
+    <label>Active</label>
+    </div>
+    <div class ='legend-row'>
+    <span style='background:#ff7f00;'></span>
+    <label>Closed</label>
+    </div>
+</div>
 
 <div id='map'></div>
 <script>
 //var activeCol = '#0075A2'
 //var closedCol = '#6CAD5F'
-//var closedCol = '#ff7f00'
-var activeCol = '#002F6C'
+var closedCol = '#ff7f00'
+var activeCol = '#984ea3'
 var map = L.mapbox.map('map', 'otigiu.oti-global')
     .setView([10, 25], 2);
-
-map.legendControl.addLegend(document.getElementById('legend').innerHTML);
-
+## map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 var popup = new L.Popup({ autoPan: false });
-
 var otiLayer = L.mapbox.featureLayer()
 	.loadURL('featurecollection.geojson')
 	.setFilter(function(feature) {
@@ -46,16 +80,11 @@ var otiLayer = L.mapbox.featureLayer()
 	.on('ready',function(){
 		otiLayer.eachLayer(function(layer) {
 			onEachFeature(layer.feature,layer);
-
-
 		})
 		 
 			
 	})
 	.addTo(map);
-
-
-
    function getStyle(feature) {
        return {
            weight: 1,
@@ -65,19 +94,14 @@ var otiLayer = L.mapbox.featureLayer()
            fillColor: getColor(feature.properties.status)
        };
    }
-
   // // get color depending on program status
    function getColor(s) {
       return s == 'Active' ? activeCol :
           s  == 'Closed' ? closedCol :
           '#000';
   }
-
    function onEachFeature(feature, layer) {
-
 	  	layer.setStyle(getStyle(feature));
-
-
        var popupContent = '';
         popupContent += '<div class="marker-title">' + layer.feature.properties.oti_name + '</div>'; 
         popupContent += '<b>' + 'Status: ' + '</b>' + layer.feature.properties.status;
@@ -87,31 +111,24 @@ var otiLayer = L.mapbox.featureLayer()
         if (layer.feature.properties.link !== undefined && layer.feature.properties.link > '') {
           popupContent += '<a href="' + layer.feature.properties.link + '">' + ' Learn more' + '</a>';
         }
-
         layer.bindPopup(popupContent);
-
         layer.on({
            mousemove: mousemove,
            mouseout: mouseout,
         });
         
         };     
-
   function mousemove(e) {
       var layer = e.target;
-
       popup.setLatLng(e.latlng);
-
       // highlight feature
       layer.setStyle({
           weight: 2,
           fillOpacity: 1
       });
   }
-
   function mouseout(e) {
       var layer = e.target;
-
       // highlight feature
       layer.setStyle({
           weight: 1,
@@ -120,7 +137,6 @@ var otiLayer = L.mapbox.featureLayer()
           opacity: 0.5
       });
   }
-
 </script>
 
 
