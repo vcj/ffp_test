@@ -79,7 +79,7 @@ map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 var popup = new L.Popup({ autoPan: false });
 
 var otiLayer = L.mapbox.featureLayer()
-	.loadURL('global-oti.geojson')
+	.loadURL('ffp_geojsonfromqgis.geojson')
 	.setFilter(function(feature) {
 		return feature.properties.oti_name !== null;
 	})
