@@ -1,6 +1,5 @@
 {
 "type": "FeatureCollection",
-"name": "ffp_geojsonfromqgis",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "name": "Dominica", "iso_a2": "DM", "oti_name": "Dominica", "status": "Active", "summary": "Situation: Following Hurricane Maria, agricultural devastation and disruption to commercial food supply pipelines contributed to a shortage of food on the island. Widespread damage to infrastructure continues to hinder livelihoods opportunities.   \nResponse: Emergency.", "link": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -61.463513436616068, 15.651263514357128 ], [ -61.300834704796081, 15.553656275265137 ], [ -61.246608460856088, 15.369287045869157 ], [ -61.289989456008087, 15.239144060413173 ], [ -61.376751446312078, 15.239144060413173 ], [ -61.430977690252071, 15.380132294657157 ], [ -61.517739680556062, 15.531965777689141 ], [ -61.517739680556062, 15.531965777689141 ], [ -61.463513436616068, 15.651263514357128 ] ] ] } },
