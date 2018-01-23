@@ -74,7 +74,7 @@ var activeCol = '#984ea3'
 var map = L.mapbox.map('map', 'otigiu.oti-global')
     .setView([10, 25], 2);
 
-## map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 var popup = new L.Popup({ autoPan: false });
 
