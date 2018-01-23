@@ -66,11 +66,11 @@
 <script>
 //var activeCol = '#0075A2'
 //var closedCol = '#6CAD5F'
-var closedCol = '#ff7f00'
-var activeCol = '#984ea3'
+//var closedCol = '#ff7f00'
+var activeCol = '#002F6C'
 var map = L.mapbox.map('map', 'otigiu.oti-global')
     .setView([10, 25], 2);
-## map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 var popup = new L.Popup({ autoPan: false });
 var otiLayer = L.mapbox.featureLayer()
 	.loadURL('featurecollection.geojson')
