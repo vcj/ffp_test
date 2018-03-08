@@ -58,7 +58,7 @@
     </div>
     <div class ='legend-row'>
     <span style='background:#ff7f00;'></span>
-    <label>Closed</label>
+    <label>Regional Response</label>
     </div>
 </div>
 
@@ -68,6 +68,7 @@
 //var closedCol = '#6CAD5F'
 //var closedCol = '#ff7f00'
 var activeCol = '#002F6C'
+var closedCol = '#BA0C2F'
 var map = L.mapbox.map('map', 'otigiu.oti-global')
     .setView([10, 25], 2);
 map.legendControl.addLegend(document.getElementById('legend').innerHTML);
@@ -133,7 +134,7 @@ var otiLayer = L.mapbox.featureLayer()
           weight: 1,
           fillOpacity: 0.5, 
           color: '#eee',
-          opacity: 0.5
+          opacity: 0.6
       });
   }
 </script>
